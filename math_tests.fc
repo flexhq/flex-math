@@ -1,0 +1,184 @@
+void title(String name) {
+	puts("\n")
+	puts(name)
+	puts("_____")
+}
+
+void main(List args) {
+	// CONSTANT PI
+	title("PI")
+	puts(Math::PI == 3.141592653589793)
+	puts(str(Math::PI) == "3.141592653589793")
+
+ 	// CONSTANT E
+	title("E")
+	puts(Math::E == 2.718281828459045)
+	puts(str(Math::E) == "2.718281828459045")
+
+	// acos
+	title("acos")
+	puts(Math::acos(0.0) == Math::PI/2)
+
+	// acosh
+	title("acosh")
+	puts(Math::acosh(1.0) == 0.0)
+
+	// asin
+	title("asin")
+	puts(Math::asin(1.0) == Math::PI/2)
+
+	// asinh
+	title("asinh")
+	puts(Math::asinh(1.0) == 0.881373587019543)	
+
+	// atan
+	title("atan")
+	puts(Math::atan(0.0) == 0.0)
+
+	// atan2
+	title("atan2")
+	puts(Math::atan2(-0.0, -1.0) == -3.141592653589793)
+	puts(Math::atan2(-1.0, -1.0) == -2.356194490192345)
+	puts(Math::atan2(-1.0, 0.0) == -1.5707963267948966)
+	puts(Math::atan2(-1.0, 1.0) == -0.7853981633974483)
+	puts(Math::atan2(-0.0, 1.0) == -0.0)
+	puts(Math::atan2(0.0, 1.0) == 0.0)
+	puts(Math::atan2(1.0, 1.0) == 0.7853981633974483)
+	puts(Math::atan2(1.0, 0.0) == 1.5707963267948966)
+	puts(Math::atan2(1.0, -1.0) == 2.356194490192345)
+	puts(Math::atan2(0.0, -1.0) == 3.141592653589793)
+	puts(Math::atan2(INFINITY, INFINITY) == 0.7853981633974483)
+	puts(Math::atan2(INFINITY, -INFINITY) == 2.356194490192345)
+	puts(Math::atan2(-INFINITY, INFINITY) == -0.7853981633974483)
+	puts(Math::atan2(-INFINITY, -INFINITY) == -2.356194490192345)
+
+	// atanh
+	title("atanh")
+	puts(Math::atanh(1.0) == INFINITY)
+
+	// cbrt
+	title("cbrt")
+	puts(Math::cbrt(-9.0) == -2.080083823051904)
+	puts(Math::cbrt(-8.0) == -2.0)
+	puts(Math::cbrt(-7.0) == -1.912931182772389)
+	puts(Math::cbrt(-6.0) == -1.817120592832140)
+	puts(Math::cbrt(-5.0) == -1.709975946676697)
+	puts(Math::cbrt(-4.0) == -1.587401051968200)
+	puts(Math::cbrt(-3.0) == -1.442249570307408)
+	puts(Math::cbrt(-2.0) == -1.259921049894873)
+	puts(Math::cbrt(-2.0) == -1.259921049894873)
+	puts(Math::cbrt(-1.0) == -1.0)
+	puts(Math::cbrt(0.0) == 0.0)
+
+	// cos 
+	title("cos")
+	puts(Math::cos(Math::PI) == -1.0)
+
+	// cosh
+	title("cosh")
+	puts(Math::cosh(0.0) == 1.0)
+
+	// erf
+	title("erf")
+	puts(Math::erf(0.0) == 0.0)
+
+	// erfc
+	title("erfc")
+	puts(Math::erfc(0.0) == 1.0)
+
+	// exp
+	title("exp")
+	puts(Math::exp(0.0) == 1.0)
+	puts(Math::exp(1.0) == 2.718281828459045)
+	puts(Math::exp(1.5) == 4.4816890703380645)
+
+	// frexp
+	title("frexp")
+	puts(Math::frexp(1234.0) == [0.6025390625, 11])
+
+	// gamma
+	title("gamma")
+	puts(Math::gamma(1.0) == 1.0)
+	puts(Math::gamma(2.0) == 1.0)
+	puts(Math::gamma(3.0) == 2.0)
+	puts(Math::gamma(4.0) == 6.0)
+	puts(Math::gamma(5.0) == 24.0)
+	puts(Math::gamma(6.0) == 120.0)
+	puts(Math::gamma(7.0) == 720.0)
+	puts(Math::gamma(8.0) == 5040.0)
+	puts(Math::gamma(9.0) == 40320.0)
+	puts(Math::gamma(10.0) == 362880.0)
+	puts(Math::gamma(11.0) == 3628800.0)
+	puts(Math::gamma(12.0) == 39916800.0)
+	puts(Math::gamma(13.0) == 479001600.0)
+	puts(Math::gamma(14.0) == 6227020800.0)
+	puts(Math::gamma(15.0) == 87178291200.0)
+	puts(Math::gamma(16.0) == 1307674368000.0)
+	puts(Math::gamma(17.0) == 20922789888000.0)
+	puts(Math::gamma(18.0) == 355687428096000.0)
+	puts(Math::gamma(19.0))
+	puts(Math::gamma(20.0))
+	puts(Math::gamma(21.0))
+	puts(Math::gamma(22.0))
+	puts(Math::gamma(23.0))
+	puts(Math::gamma(24.0))
+	puts(Math::gamma(25.0))
+	puts(Math::gamma(26.0))
+
+	// hypot
+	title("hypot")
+	puts(Math::hypot(3.0, 4.0) == 5.0)
+
+	// ldexp
+	title("ldexp")
+	Vector fraction_exp = Math::frexp(1234.0)
+	puts(Math::ldexp(fraction_exp[0], fraction_exp[1]) == 1234.0)
+
+	// lgamma
+	title("lgamma")
+	puts(Math::lgamma(0.0) == [INFINITY, 1])
+
+	// log10
+	title("log10")
+	puts(Math::log10(1.0)       == 0.0)
+	puts(Math::log10(10.0)      == 1.0)
+	// puts(Math::log10(10.0**100.0) == 100.0)
+
+	// log2
+	title("log2")
+	puts(Math::log2(1.0)      == 0.0)
+	puts(Math::log2(2.0)      == 1.0)
+	puts(Math::log2(32768.0)  == 15.0)
+	puts(Math::log2(65536.0)  == 16.0)
+
+	// sin
+	title("sin")
+	double PI_2 = Math::PI/2.0
+	puts(Math::sin(PI_2) == 1.0)
+
+	// sinh
+	title("sinh")
+	puts(Math::sinh(0.0) == 0.0)
+
+	// sqrt
+	title("sqrt")
+	puts(Math::sqrt(0.0))
+	puts(Math::sqrt(1.0))
+	puts(Math::sqrt(2.0))
+	puts(Math::sqrt(3.0))
+	puts(Math::sqrt(4.0))
+	puts(Math::sqrt(5.0))
+	puts(Math::sqrt(6.0))
+	puts(Math::sqrt(7.0))
+	puts(Math::sqrt(8.0))
+	puts(Math::sqrt(9.0))
+	puts(Math::sqrt(10.0))
+
+	// tan
+	title("tan")
+	puts(Math::tan(0.0) == 0.0)
+
+	// tanh
+	title("tanh")
+	puts(Math::tanh(0.0) == 0.0)
+}

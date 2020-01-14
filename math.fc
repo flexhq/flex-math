@@ -1,0 +1,225 @@
+unsafe Object fMath_acos(fVM vm, double x);
+unsafe Object fMath_acosh(fVM vm, double x);
+unsafe Object fMath_asin(fVM vm, double x);
+unsafe Object fMath_asinh(fVM vm, double x);
+unsafe Object fMath_atan(fVM vm, double x);
+unsafe Object fMath_atan2(fVM vm, double x, double y);
+unsafe Object fMath_atanh(fVM vm, double x);
+unsafe Object fMath_cbrt(fVM vm, double x);
+unsafe Object fMath_cos(fVM vm, double x);
+unsafe Object fMath_cosh(fVM vm, double x);
+unsafe Object fMath_erf(fVM vm, double x);
+unsafe Object fMath_erfc(fVM vm, double x);
+unsafe Object fMath_exp(fVM vm, double x);
+unsafe Object fMath_frexp(fVM vm, double x);
+unsafe Object fMath_gamma(fVM vm, double x);
+unsafe Object fMath_hypot(fVM vm, double x, double y);
+unsafe Object fMath_ldexp(fVM vm, double x, int32 n);
+unsafe Object fMath_lgamma(fVM vm, double x);
+unsafe Object fMath_log10(fVM vm, double x);
+unsafe Object fMath_log2(fVM vm, double x);
+unsafe Object fMath_sin(fVM vm, double x);
+unsafe Object fMath_sinh(fVM vm, double x);
+unsafe Object fMath_sqrt(fVM vm, double x);
+unsafe Object fMath_tan(fVM vm, double x);
+unsafe Object fMath_tanh(fVM vm, double x);
+
+module Math {
+	// Constants
+	double PI = 3.141592653589793
+	double E = 2.718281828459045
+	double ZERO = 0.0
+	double ONE = 1.0
+	double NEG_ONE = -1.0
+	double TWO = 2.0
+
+
+	// Computes the arc cosine of x. Returns 0..PI.
+	Object acos(double x) {
+		if (Math::ONE < x) { throw(RuntimeException, "Domain error: acos") }
+		if (x < Math::NEG_ONE) { throw(RuntimeException, "Domain error: acos") }
+
+		return fMath_acos(__vm__, x)
+	}
+
+
+	// Computes the inverse hyperbolic cosine of x.
+	Object acosh(double x) {
+		if (x < Math::ONE) {throw(RuntimeException, "Domain error: acosh")}
+		return fMath_acosh(__vm__, x)
+	}
+
+
+	// Computes the arc sine of x. Returns -PI/2..PI/2.
+	// Domain: [-1, -1]
+	// Codomain: [-PI/2, PI/2]
+	Object asin(double x) {
+		if (x < Math::NEG_ONE) { throw(RuntimeException, "Domain error: asin") }
+		if (Math::ONE < x) { throw(RuntimeException, "Domain error: asin") }
+		return fMath_asin(__vm__, x)
+	}
+
+
+	// Computes the inverse hyperbolic sine of x.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: (-INFINITY, INFINITY)
+	Object asinh(double x) {
+		return fMath_asinh(__vm__, x)
+	}
+
+
+	// Computes the inverse hyperbolic sine of x.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: (-PI/2, PI/2)
+	Object atan(double x) {
+		return fMath_atan(__vm__, x)
+	}
+
+
+	// Computes the arc tangent given y and x. Returns a Float in the range -PI..PI. 
+	// Return value is a angle in radians between the positive x-axis of cartesian plane 
+	// and the point given by the coordinates (x, y) on it.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: [-PI, PI]
+	Object atan2(double x, double y) {
+		return fMath_atan2(__vm__, x, y)
+	}
+
+
+	// Computes the inverse hyperbolic tangent of x.
+	// Domain: (-1, 1)
+	// Codomain: (-INFINITY, INFINITY)
+	Object atanh(double x) {
+		return fMath_atanh(__vm__, x)
+	}
+
+
+	// Returns the cube root of x.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: (-INFINITY, INFINITY)
+	Object cbrt(double x) {
+		return fMath_cbrt(__vm__, x)
+	}
+
+
+	// Computes the cosine of x (expressed in radians). Returns a Float in the range -1.0..1.0.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: [-1, 1]
+	Object cos(double x) {
+		return fMath_cos(__vm__, x)
+	}
+
+
+	// Computes the hyperbolic cosine of x (expressed in radians).
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: [-1, 1]
+	Object cosh(double x) {
+		return fMath_cosh(__vm__, x)
+	}
+
+
+	// Calculates the error function of x.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: [-1, 1]
+	Object erf(double x) {
+		return fMath_erf(__vm__, x)
+	}
+
+
+	// Calculates the complementary error function of x.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: [0, 2]
+	Object erfc(double x) {
+		return fMath_erfc(__vm__, x)
+	}
+
+
+	// Returns e**x.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: [0, 2]
+	Object exp(double x) {
+		return fMath_exp(__vm__, x)
+	}
+
+
+	// Returns a two-element array containing the normalized fraction (a Float) and exponent (an Integer) of x.
+	Object frexp(double x) {
+		return fMath_frexp(__vm__, x)
+	}
+
+	
+	// Calculates the gamma function of x.
+	// Note that gamma(n) is same as fact(n-1) for integer n > 0. However gamma(n) returns float and can be an approximation.
+	Object gamma(double x) {
+		return fMath_gamma(__vm__, x)
+	}
+
+	
+	// Returns sqrt(x**2 + y**2), the hypotenuse of a right-angled triangle with sides x and y.
+	Object hypot(double x, double y) {
+		return fMath_hypot(__vm__, x, y)
+	}
+
+
+	//Returns the value of fraction*(2**exponent).
+	Object ldexp(double x, int32 n) {
+		return fMath_ldexp(__vm__, x, n)
+	}
+
+
+	// Calculates the logarithmic gamma of x and the sign of gamma of x.
+	Object lgamma(double x) {
+		return fMath_lgamma(__vm__, x)
+	}
+
+
+	// Returns the base 10 logarithm of x.
+	// Domain: (0, INFINITY)
+	// Codomain: (-INFINITY, INFINITY)
+	Object log10(double x) {
+		return fMath_log10(__vm__, x)
+	}
+
+
+	// Returns the base 2 logarithm of x.
+	Object log2(double x) {
+		return fMath_log2(__vm__, x)
+	}
+
+
+	// Computes the sine of x (expressed in radians). Returns a Float in the range -1.0..1.0.
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: [-1, 1]
+	Object sin(double x) {
+		return fMath_sin(__vm__, x)
+	}
+
+
+	// Computes the hyperbolic sine of x (expressed in radians).
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: (-INFINITY, INFINITY)
+	Object sinh(double x) {
+		return fMath_sinh(__vm__, x)
+	}
+
+
+	// Returns the non-negative square root of x.
+	// Domain: [0, INFINITY)
+	// Codomain:[0, INFINITY)
+	Object sqrt(double x) {
+		return fMath_sqrt(__vm__, x)
+	}
+
+
+
+	// Computes the tangent of x (expressed in radians).
+	// Domain: (-INFINITY, INFINITY)
+	// Codomain: (-INFINITY, INFINITY)
+	Object tan(double x) {
+		return fMath_tan(__vm__, x)
+	}
+
+	Object tanh(double x) {
+		return fMath_tanh(__vm__, x)
+	}
+}
